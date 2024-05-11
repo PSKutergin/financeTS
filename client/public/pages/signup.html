@@ -1,0 +1,39 @@
+<section class="container">
+    <section class="form">
+        <section class="form__logo">
+            <img src="/images/logo.png" alt="logo">
+        </section>
+
+        <form class="form__body">
+            <h2 class="form__title">Создайте аккаунт</h2>
+            <div class="form__inputs">
+                <div class="form__input-group">
+                    <img src="/images/user.svg" alt="user">
+                    <input type="text" id="user" class="form__input" placeholder="ФИО">
+                </div>
+                <div class="form__input-group">
+                    <img src="/images/email.svg" alt="email">
+                    <input type="email" id="email" class="form__input" placeholder="Электронная почта">
+                </div>
+                <div class="form__input-group">
+                    <img src="/images/lock.svg" alt="lock">
+                    <input type="password" id="password" class="form__input" placeholder="Пароль">
+                </div>
+                <div class="form__input-group">
+                    <img src="/images/lock.svg" alt="lock">
+                    <input type="password" id="password-repeat" class="form__input" placeholder="Подтверждение пароля">
+                </div>
+
+            </div>
+            <div class="form__actions">
+                <button type="button" class="form__button" id="process" disabled>Зарегистрироваться</button>
+                <p class="form__text">
+                    <span>Уже есть аккаунт?</span>
+                    <a href="#/login" class="form__link">Войдите в систему</a>
+                </p>
+            </div>
+        </form>
+
+        <section class="error-message " id="error"></section>
+    </section>
+</section>

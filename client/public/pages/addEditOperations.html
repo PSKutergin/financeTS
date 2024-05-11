@@ -1,0 +1,25 @@
+<section class="container">
+    <h1 class="content__title"></h1>
+    <form class="content__form">
+        <section class="content__input-wrapper">
+            <select name="type" class="content__select" id="type">
+                <option class="content__select_option" value="" selected disabled>Тип...</option>
+                <option value="income">Доход</option>
+                <option value="expense">Расход</option>
+            </select>
+            <select name="category_id" class="content__select" id="category_id">
+                <option class="content__select_option" value="" selected disabled>Категория...</option>
+            </select>
+            <input type="text" class="content__input" name="amount" id="amount" placeholder="Сумма в $...">
+            <section class="content__calendar-wrapper">
+                <input type="text" class="content__input" name="date" id="date" placeholder="Дата...">
+                <div class="content__calendar" id="calendar"></div>
+            </section>
+            <input type="text" class="content__input" name="comment" placeholder="Комментарий...">
+        </section>
+        <section class="content__buttons-wrapper">
+            <button type="button" class="content__button">Создать</button>
+            <button type="button" class="content__button-cancel">Отмена</button>
+        </section>
+    </form>
+</section>

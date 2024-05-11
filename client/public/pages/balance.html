@@ -1,0 +1,58 @@
+<section class="container">
+    <h1 class="content__title">Доходы и расходы</h1>
+    <section class="content__buttons-wrapper__add">
+        <button type="button" class="content__button-income">Создать доход</button>
+        <button type="button" class="content__button-expense">Создать расход</button>
+    </section>
+    <nav class="content__nav-wrapper">
+        <ul class="content__nav">
+            <li class="content__nav-item active" id="today">Сегодня</li>
+            <li class="content__nav-item " id="week">Неделя</li>
+            <li class="content__nav-item" id="month">Месяц</li>
+            <li class="content__nav-item" id="year">Год</li>
+            <li class="content__nav-item" id="all">Все</li>
+            <li class="content__nav-item" id="interval">Интервал</li>
+        </ul>
+        <section class="date-interval-wrapper" id="dateInterval">
+            <section class="date-interval">
+                <label class="date-interval__label">c</label>
+                <input type="text" class="date-interval__input" placeholder="Дата" id="dateFrom">
+                <div class="content__calendar" id="calendarFrom"></div>
+            </section>
+            <section class="date-interval">
+                <label class="date-interval__label">по</label>
+                <input type="text" class="date-interval__input" placeholder="Дата" id="dateTo">
+                <div class="content__calendar" id="calendarTo"></div>
+            </section>
+            <section class="date-error hide">
+                <p class="date-error__text">Начальная дата не может быть больше конечной</p>
+            </section>
+        </section>
+    </nav>
+    <table class="content__table">
+        <thead class="content__table-head">
+            <tr>
+                <th class="content__table-head-item">№ операции</th>
+                <th class="content__table-head-item">Тип</th>
+                <th class="content__table-head-item">Категория</th>
+                <th class="content__table-head-item">Сумма</th>
+                <th class="content__table-head-item">Дата</th>
+                <th class="content__table-head-item">Комментарий</th>
+                <th class="content__table-head-item"></th>
+            </tr>
+        </thead>
+        <tbody class="content__table-body"></tbody>
+    </table>
+    <section class="content__no-operations hide">
+        За выбранный период нет операций. Выберите другой период!
+    </section>
+    <section class="content__popup">
+        <section class="popup">
+            <p class="popup__text">Вы действительно хотите удалить операцию?</p>
+            <section class="popup__btn-wrapper">
+                <button class="popup__btn-delete">Да, удалить</button>
+                <button class="popup__btn-cancel">Не удалять</button>
+            </section>
+        </section>
+    </section>
+</section>

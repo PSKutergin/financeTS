@@ -1,0 +1,58 @@
+.content__form {
+  width: 397px;
+}
+
+.content__input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content__calendar-wrapper {
+  position: relative;
+}
+
+.content__select,
+.content__input {
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 15px;
+  line-height: 22px;
+  padding: 7px 16px;
+  outline: none;
+  color: #000;
+  cursor: pointer;
+
+  &::placeholder {
+    color: #6c757d;
+  }
+}
+
+.content__buttons-wrapper {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10.5px;
+}
+
+.content__button {
+  background: #198754;
+}
+
+.content__button-cancel {
+  background: #dc3545;
+}
+
+.content__button,
+.content__button-cancel {
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 10px #6c757d;
+  }
+
+  &:active {
+    box-shadow: inset 0 0 10px #6c757d;
+  }
+}

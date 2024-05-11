@@ -1,0 +1,43 @@
+<section class="container">
+    <h1 class="content__title">Главная</h1>
+    <nav class="content__nav-wrapper">
+        <ul class="content__nav">
+            <li class="content__nav-item active" id="today">Сегодня</li>
+            <li class="content__nav-item" id="week">Неделя</li>
+            <li class="content__nav-item" id="month">Месяц</li>
+            <li class="content__nav-item" id="year">Год</li>
+            <li class="content__nav-item" id="all">Все</li>
+            <li class="content__nav-item" id="interval">Интервал</li>
+        </ul>
+        <section class="date-interval-wrapper" id="dateInterval">
+            <section class="date-interval">
+                <label class="date-interval__label">c</label>
+                <input type="text" class="date-interval__input" placeholder="Дата" id="dateFrom">
+                <div class="content__calendar" id="calendarFrom"></div>
+            </section>
+            <section class="date-interval">
+                <label class="date-interval__label">по</label>
+                <input type="text" class="date-interval__input" placeholder="Дата" id="dateTo">
+                <div class="content__calendar" id="calendarTo"></div>
+            </section>
+            <section class="date-error hide">
+                <p class="date-error__text">Начальная дата не может быть больше конечной</p>
+            </section>
+        </section>
+    </nav>
+    <section class="content__chart">
+        <section class="chart" id="chart-income">
+            <canvas id="pie-chart-income" class="pie-chart"></canvas>
+        </section>
+        <section class="content__no-income hide" id="no-income">
+            За выбранный период нет доходов. Выберите другой период!
+        </section>
+        <div class="content__chart-divider"></div>
+        <section class="chart" id="chart-expense">
+            <canvas id="pie-chart-expense" class="pie-chart"></canvas>
+        </section>
+        <section class="content__no-expense hide" id="no-expense">
+            За выбранный период нет расходов. Выберите другой период!
+        </section>
+    </section>
+</section>
