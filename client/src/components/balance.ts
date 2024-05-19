@@ -231,7 +231,7 @@ export class Balance {
                     try {
                         const id: string | undefined = closestItem.dataset.id
                         await Operation.getOperation(id as string).then(respons => {
-                            window.currentType.setType(respons.data.type);
+                            window.currentType.setType((respons as AxiosResponse).data.type);
                             window.location.hash = `#/edit-operation/${id}`
                         })
                     } catch (error) {
@@ -245,8 +245,8 @@ export class Balance {
     private async getCategories(): Promise<void> {
         try {
             const [incomeRes, expenseRes]: [AxiosResponse, AxiosResponse] = await Promise.all([
-                Category.getCategories("income"),
-                Category.getCategories("expense")
+                Category.getCategories("income") as Promise<AxiosResponse>,
+                Category.getCategories("expense") as Promise<AxiosResponse>
             ]);
             this.categoriesIncome = incomeRes.data;
             this.categoriesExpense = expenseRes.data;
@@ -261,11 +261,11 @@ export class Balance {
         try {
             let respons: AxiosResponse;
             if (interval && dateFrom && dateTo) {
-                respons = await Operation.getOperations(interval, dateFrom, dateTo);
+                respons = await Operation.getOperations(interval, dateFrom, dateTo) as AxiosResponse;
             } else if (interval && !dateFrom && !dateTo) {
-                respons = await Operation.getOperations(interval);
+                respons = await Operation.getOperations(interval) as AxiosResponse;
             } else {
-                respons = await Operation.getOperations();
+                respons = await Operation.getOperations() as AxiosResponse;
             }
             this.renderTable(respons.data as OperationsResponseType[]);
         } catch (error) {

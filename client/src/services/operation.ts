@@ -1,9 +1,10 @@
+import { AxiosError, AxiosResponse } from "axios";
 import instance from "../api/interceptor";
 import { formatDateFromISO } from '../helpers/helpers';
 import { OperationType } from "../types/operation.type";
 
 export class Operation {
-    public static async getOperations(interval: string = 'interval', dateFrom: string | null = null, dateTo: string | null = null): Promise<any> {
+    public static async getOperations(interval: string = 'interval', dateFrom: string | null = null, dateTo: string | null = null): Promise<AxiosResponse | AxiosError> {
         let url = `api/operations`;
 
         switch (interval) {
@@ -30,19 +31,19 @@ export class Operation {
         return instance.get(url)
     }
 
-    public static async setOperations({ type, amount, date, comment, category_id }: OperationType): Promise<any> {
+    public static async setOperations({ type, amount, date, comment, category_id }: OperationType): Promise<AxiosResponse | AxiosError> {
         return instance.post(`api/operations`, { type, amount, date, comment, category_id })
     }
 
-    public static async getOperation(id: string): Promise<any> {
+    public static async getOperation(id: string): Promise<AxiosResponse | AxiosError> {
         return instance.get(`api/operations/${id}`)
     }
 
-    public static async editOperation(id: string, { type, amount, date, comment, category_id }: OperationType): Promise<any> {
+    public static async editOperation(id: string, { type, amount, date, comment, category_id }: OperationType): Promise<AxiosResponse | AxiosError> {
         return instance.put(`api/operations/${id}`, { type, amount, date, comment, category_id })
     }
 
-    public static async deleteOperation(id: string): Promise<any> {
+    public static async deleteOperation(id: string): Promise<AxiosResponse | AxiosError> {
         return instance.delete(`api/operations/${id}`)
     }
 }

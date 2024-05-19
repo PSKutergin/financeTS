@@ -46,7 +46,7 @@ export default class User {
 
     public static async login(data: LoginResponseType): Promise<void> {
         try {
-            const response: AxiosResponse = await Auth.login(data);
+            const response: AxiosResponse = await Auth.login(data) as AxiosResponse;
             const user: UserType = response.data.user;
             const tokens: TokensType = response.data.tokens;
 
@@ -98,7 +98,7 @@ export default class User {
                 this.isRefreshing = true; // устанавливаем флаг обновления
 
                 if (refreshToken) {
-                    const response: AxiosResponse = await Auth.refresh(refreshToken);
+                    const response: AxiosResponse = await Auth.refresh(refreshToken) as AxiosResponse;
                     const tokens: TokensType = response.data.tokens;
                     Auth.setTokens(tokens.accessToken, tokens.refreshToken);
                 } else {

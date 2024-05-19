@@ -73,7 +73,7 @@ export class AddEditCategories {
     }
 
     private async getCategoryFromApi(): Promise<void> {
-        const res: AxiosResponse = await Category.getCategory((this.currentType as string), (this.idCategory as string));
+        const res: AxiosResponse = await Category.getCategory((this.currentType as string), (this.idCategory as string)) as AxiosResponse;
         (this.valueInput as HTMLInputElement).value = res.data.title;
     }
 

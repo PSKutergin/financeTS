@@ -13,8 +13,8 @@ export default class Categories {
     private async init(): Promise<void> {
         try {
             const [incomeRes, expenseRes]: [AxiosResponse, AxiosResponse] = await Promise.all([
-                Category.getCategories("income"),
-                Category.getCategories("expense")
+                Category.getCategories("income") as Promise<AxiosResponse>,
+                Category.getCategories("expense") as Promise<AxiosResponse>
             ]);
             this.categoriesIncome = incomeRes.data;
             this.categoriesExpense = expenseRes.data;

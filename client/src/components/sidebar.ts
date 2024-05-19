@@ -101,7 +101,7 @@ export class Sidebar {
 
     private async getBalanceFromApi(): Promise<void> {
         try {
-            const res: AxiosResponse = await Balance.getBalance()
+            const res: AxiosResponse = await Balance.getBalance() as AxiosResponse;
 
             if (this.balanceElem) this.balanceElem.textContent = `${res.data.balance.toLocaleString()} $`
         } catch (error) {

@@ -152,11 +152,11 @@ export class Main {
         try {
             let respons: AxiosResponse;
             if (interval && dateFrom && dateTo) {
-                respons = await Operation.getOperations(interval, dateFrom, dateTo);
+                respons = await Operation.getOperations(interval, dateFrom, dateTo) as AxiosResponse;
             } else if (interval && !dateFrom && !dateTo) {
-                respons = await Operation.getOperations(interval);
+                respons = await Operation.getOperations(interval) as AxiosResponse;
             } else {
-                respons = await Operation.getOperations();
+                respons = await Operation.getOperations() as AxiosResponse;
             }
             this.renderCharts(respons.data);
         } catch (error) {

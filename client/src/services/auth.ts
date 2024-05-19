@@ -1,3 +1,4 @@
+import { AxiosError, AxiosResponse } from "axios";
 import instance from "../api/interceptor";
 import { LoginResponseType, SignupResponseType } from "../types/response.type";
 
@@ -5,19 +6,19 @@ export class Auth {
     public static accessTokenKey: string = 'accessToken';
     public static refreshTokenKey: string = 'refreshToken';
 
-    public static async login(data: LoginResponseType): Promise<any> {
+    public static async login(data: LoginResponseType): Promise<AxiosResponse | AxiosError> {
         return instance.post('api/login', data)
     }
 
-    public static async signup(data: SignupResponseType): Promise<any> {
+    public static async signup(data: SignupResponseType): Promise<AxiosResponse | AxiosError> {
         return instance.post('api/signup', data)
     }
 
-    public static async refresh(refreshToken: string): Promise<any> {
+    public static async refresh(refreshToken: string): Promise<AxiosResponse | AxiosError> {
         return instance.post('api/refresh', { refreshToken })
     }
 
-    public static async logout(refreshToken: string): Promise<any> {
+    public static async logout(refreshToken: string): Promise<AxiosResponse | AxiosError> {
         return instance.post('api/logout', { refreshToken })
     }
 

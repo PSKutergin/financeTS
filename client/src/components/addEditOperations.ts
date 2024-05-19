@@ -130,8 +130,8 @@ export class AddEditOperations {
     private async getCategories(): Promise<void> {
         try {
             const [incomeRes, expenseRes]: [AxiosResponse, AxiosResponse] = await Promise.all([
-                Category.getCategories("income"),
-                Category.getCategories("expense")
+                Category.getCategories("income") as Promise<AxiosResponse>,
+                Category.getCategories("expense") as Promise<AxiosResponse>
             ]);
             this.categoriesIncome = incomeRes.data;
             this.categoriesExpense = expenseRes.data;
@@ -167,7 +167,7 @@ export class AddEditOperations {
     }
 
     private async getOperationFromApi(): Promise<void> {
-        const res: AxiosResponse = await Operation.getOperation(this.idOperation as string);
+        const res: AxiosResponse = await Operation.getOperation(this.idOperation as string) as AxiosResponse;
         const operationData: OperationsResponseType = res.data;
         this.currentType = operationData.type;
 

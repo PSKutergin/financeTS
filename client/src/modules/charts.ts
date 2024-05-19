@@ -1,4 +1,6 @@
-import { Chart, ChartConfiguration, ChartData } from 'chart.js';
+import { Chart, ChartConfiguration, ChartData, registerables } from 'chart.js';
+
+Chart.register(...registerables);
 
 interface Utils {
     CHART_COLORS: {

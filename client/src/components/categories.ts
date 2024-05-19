@@ -1,3 +1,4 @@
+import { AxiosResponse } from "axios";
 import { Category } from "../services/category";
 import { CategoryType } from "../types/category.type";
 
@@ -38,7 +39,7 @@ export class Categories {
         try {
             if (this.titleCategory && this.contentCategories) {
                 await Category.getCategories((this.type as string))
-                    .then(res => this.renderCategories(res.data))
+                    .then((res) => this.renderCategories((res as AxiosResponse).data))
                     .catch(error => {
                         console.log(error);
                     })
